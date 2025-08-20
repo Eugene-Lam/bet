@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HKJC Prototype - Horse Racing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body data-page="racing" class="min-h-screen bg-gray-50">
+    <div id="header"></div>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <section class="lg:col-span-3 space-y-4">
+          <div class="bg-white border rounded-xl p-4 flex items-center justify-between">
+            <div class="font-medium">Sha Tin - 20/08</div>
+            <div class="flex items-center gap-3">
+              <label class="text-sm text-gray-600">Race</label>
+              <select id="race-select" class="px-3 py-2 border rounded-md"></select>
+            </div>
+          </div>
+
+          <div class="bg-white border rounded-xl overflow-hidden">
+            <table class="min-w-full">
+              <thead class="bg-gray-50 text-left text-sm text-gray-600">
+                <tr>
+                  <th class="py-2 px-2">#</th>
+                  <th class="py-2 px-2">Horse</th>
+                  <th class="py-2 px-2">Jockey</th>
+                  <th class="py-2 px-2">Trainer</th>
+                  <th class="py-2 px-2">Win / Place</th>
+                  <th class="py-2 px-2 text-right">Bet</th>
+                </tr>
+              </thead>
+              <tbody id="race-tbody" class="bg-white text-sm"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="lg:col-span-1">
+          <div class="bg-white border rounded-xl p-6 sticky top-20">
+            <div class="font-medium">Bet Slip</div>
+            <div id="race-slip" class="mt-3 text-sm text-gray-700"></div>
+            <div class="mt-4">
+              <label class="block text-sm text-gray-600 mb-1">Bet Type</label>
+              <select id="race-bet-type" class="w-full px-3 py-2 border rounded-md">
+                <option>Win</option>
+                <option>Place</option>
+              </select>
+            </div>
+            <div class="mt-4">
+              <label class="block text-sm text-gray-600 mb-1">Amount</label>
+              <input id="race-amount" type="number" min="1" class="w-full px-3 py-2 border rounded-md" placeholder="Enter amount" />
+            </div>
+            <div class="mt-2 text-sm text-gray-600">Estimated Return: <span id="race-estimate" class="font-medium">$0.00</span></div>
+            <button id="race-place" class="mt-4 w-full px-4 py-2 rounded-md bg-emerald-600 text-white hover:bg-emerald-700">Place Bet</button>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+    <script src="/Users/eugene/fake-gambling/assets/app.js"></script>
+  </body>
+  </html>
+
+
