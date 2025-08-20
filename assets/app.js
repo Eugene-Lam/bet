@@ -37,14 +37,14 @@ function setCurrentUser(user) {
 function logoutUser() {
   localStorage.removeItem(STORAGE_KEYS.user);
   renderHeader();
-  navigateTo('/Users/eugene/fake-gambling/index.html');
+  navigateTo('index.html');
 }
 
 function ensureLoggedIn(actionDescription) {
   const user = getCurrentUser();
   if (!user) {
     showToast(`Please login to ${actionDescription || 'continue'}.`);
-    setTimeout(() => navigateTo('/Users/eugene/fake-gambling/login.html'), 800);
+    setTimeout(() => navigateTo('login.html'), 800);
     return false;
   }
   return true;
@@ -113,10 +113,10 @@ function renderHeader() {
             <div class="text-emerald-600 font-bold text-xl">HKJC</div>
           </div>
           <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
-            <a href="/Users/eugene/fake-gambling/index.html" class="hover:text-emerald-600">Home</a>
-            <a href="/Users/eugene/fake-gambling/racing.html" class="hover:text-emerald-600">Horse Racing</a>
-            <a href="/Users/eugene/fake-gambling/football.html" class="hover:text-emerald-600">Football</a>
-            <a href="/Users/eugene/fake-gambling/mark-six.html" class="hover:text-emerald-600">Mark Six</a>
+            <a href="index.html" class="hover:text-emerald-600">Home</a>
+            <a href="racing.html" class="hover:text-emerald-600">Horse Racing</a>
+            <a href="football.html" class="hover:text-emerald-600">Football</a>
+            <a href="mark-six.html" class="hover:text-emerald-600">Mark Six</a>
           </nav>
           <div class="flex items-center space-x-3">
             ${isLoggedIn ? `
@@ -127,24 +127,24 @@ function renderHeader() {
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
                 <div id="accountDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg py-1">
-                  <a href="/Users/eugene/fake-gambling/account.html" class="block px-4 py-2 text-sm hover:bg-gray-50">Dashboard</a>
-                  <a href="/Users/eugene/fake-gambling/history.html" class="block px-4 py-2 text-sm hover:bg-gray-50">Betting History</a>
-                  <a href="/Users/eugene/fake-gambling/transactions.html" class="block px-4 py-2 text-sm hover:bg-gray-50">Transactions</a>
+                  <a href="account.html" class="block px-4 py-2 text-sm hover:bg-gray-50">Dashboard</a>
+                  <a href="history.html" class="block px-4 py-2 text-sm hover:bg-gray-50">Betting History</a>
+                  <a href="transactions.html" class="block px-4 py-2 text-sm hover:bg-gray-50">Transactions</a>
                   <button id="logoutBtn" class="w-full text-left px-4 py-2 text-sm hover:bg-gray-50">Logout</button>
                 </div>
               </div>
             ` : `
-              <a href="/Users/eugene/fake-gambling/login.html" class="px-3 py-2 text-sm rounded-md border bg-white hover:bg-gray-50">Login</a>
-              <a href="/Users/eugene/fake-gambling/register.html" class="px-3 py-2 text-sm rounded-md bg-emerald-600 text-white hover:bg-emerald-700">Register</a>
+              <a href="login.html" class="px-3 py-2 text-sm rounded-md border bg-white hover:bg-gray-50">Login</a>
+              <a href="register.html" class="px-3 py-2 text-sm rounded-md bg-emerald-600 text-white hover:bg-emerald-700">Register</a>
             `}
           </div>
         </div>
       </div>
       <div class="md:hidden border-t">
         <nav class="flex items-center justify-around py-2 text-sm">
-          <a href="/Users/eugene/fake-gambling/racing.html" class="hover:text-emerald-600">Racing</a>
-          <a href="/Users/eugene/fake-gambling/football.html" class="hover:text-emerald-600">Football</a>
-          <a href="/Users/eugene/fake-gambling/mark-six.html" class="hover:text-emerald-600">Mark Six</a>
+          <a href="racing.html" class="hover:text-emerald-600">Racing</a>
+          <a href="football.html" class="hover:text-emerald-600">Football</a>
+          <a href="mark-six.html" class="hover:text-emerald-600">Mark Six</a>
         </nav>
       </div>
     </header>
@@ -231,11 +231,11 @@ function showToast(message, type = 'success') {
 // ---------------------- Page: Home ----------------------
 function initHomePage() {
   const m6Btn = document.getElementById('cta-mark-six');
-  if (m6Btn) m6Btn.addEventListener('click', () => navigateTo('/Users/eugene/fake-gambling/mark-six.html'));
+  if (m6Btn) m6Btn.addEventListener('click', () => navigateTo('mark-six.html'));
   const raceBtn = document.getElementById('cta-racing');
-  if (raceBtn) raceBtn.addEventListener('click', () => navigateTo('/Users/eugene/fake-gambling/racing.html'));
+  if (raceBtn) raceBtn.addEventListener('click', () => navigateTo('racing.html'));
   const footBtn = document.getElementById('cta-football');
-  if (footBtn) footBtn.addEventListener('click', () => navigateTo('/Users/eugene/fake-gambling/football.html'));
+  if (footBtn) footBtn.addEventListener('click', () => navigateTo('football.html'));
 }
 
 // ---------------------- Page: Mark Six ----------------------
@@ -728,7 +728,7 @@ function initLoginPage() {
     const balance = 5000;
     setCurrentUser({ username, balance });
     showToast('Logged in');
-    setTimeout(()=> navigateTo('/Users/eugene/fake-gambling/index.html'), 500);
+    setTimeout(()=> navigateTo('index.html'), 500);
   });
 }
 
@@ -741,7 +741,7 @@ function initRegisterPage() {
     const balance = 5000;
     setCurrentUser({ username, email, balance });
     showToast('Registered and logged in');
-    setTimeout(()=> navigateTo('/Users/eugene/fake-gambling/index.html'), 500);
+    setTimeout(()=> navigateTo('index.html'), 500);
   });
 }
 
